@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.animatedgradient'
+    namespace 'com.example.reportsummaryappclone'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.animatedgradient"
+        applicationId "com.example.reportsummaryappclone"
         minSdk 24
         targetSdk 33
         versionCode 1

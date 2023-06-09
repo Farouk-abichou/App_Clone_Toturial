@@ -12,21 +12,17 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Brush.Companion.linearGradient
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.animatedgradient.R
 import com.example.reportsummaryappclone.ui.theme.ReportSummaryAppCloneTheme
 
 class MainActivity : ComponentActivity() {
@@ -34,8 +30,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ReportSummaryAppCloneTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
                     MainScreen()
                 }
             }
@@ -45,20 +43,30 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen(
-
-) {
+fun MainScreen() {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Personal") },
-                modifier = Modifier
-                    .padding(vertical = 8.dp),
+                title = {
+                    Text(
+                        modifier = Modifier.padding(10.dp),
+                        text = "Personal",
+                        style = MaterialTheme.typography.displayLarge,
+                        color = MaterialTheme.colorScheme.onBackground
+                    )
+                },
                 actions = {
-                    IconButton(onClick = { /*TODO*/ }) {
-                        Icon(Icons.Filled.Search, contentDescription = null)
+                    IconButton(onClick = { }) {
+                        Icon(
+                            Icons.Filled.Search,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.secondary
+                        )
                     }
-                }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.background
+                ),
             )
         },
         bottomBar = {
@@ -112,7 +120,7 @@ fun MoreSection(
     LazyColumn(
         modifier = modifier
             .fillMaxWidth()
-    ){
+    ) {
         items(5) {
             Box(
                 modifier = Modifier
@@ -132,6 +140,7 @@ fun MoreSection(
                         contentDescription = null,
                     )
                 }
+
             }
         }
     }
@@ -165,30 +174,32 @@ fun PostsRow() {
 fun StorySection() {
 
     val storyGradient = linearGradient(
-        colors = listOf(Color.Magenta, Color.Yellow),
+        colors = listOf(
+            MaterialTheme.colorScheme.onSurfaceVariant,
+            MaterialTheme.colorScheme.surfaceVariant
+        ),
     )
 
     LazyRow {
         items(5) {
             Column(
-                modifier = Modifier,
+                modifier = Modifier
+                    .padding(6.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Box(
                     modifier = Modifier
-                        .padding(8.dp)
                         .border(
                             2.dp,
                             storyGradient,
                             CircleShape
                         )
-                        .padding(6.dp)
+                        .padding(5.dp)
                         .size(60.dp)
                         .clip(
                             CircleShape
                         )
-                        .background(MaterialTheme.colorScheme.error)
-                    ,
+                        .background(MaterialTheme.colorScheme.error),
                     contentAlignment = Alignment.Center
                 ) {
                     IconButton(
@@ -202,7 +213,26 @@ fun StorySection() {
                         )
                     }
                 }
-                Text(text = "Story $it")
+                Text(
+                    text = "Person $it",
+                    color = MaterialTheme.colorScheme.outline,
+                    style = MaterialTheme.typography.bodyLarge
+                )
+                Box(modifier = Modifier
+                    .size(20.dp)
+                    .clip(
+                        CircleShape
+                    )
+                    .background(MaterialTheme.colorScheme.primary)
+                ) {
+                    Icon(
+                        Icons.Filled.Add,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .padding(5.dp),
+                        tint = MaterialTheme.colorScheme.onSecondary
+                    )
+                }
             }
         }
     }
