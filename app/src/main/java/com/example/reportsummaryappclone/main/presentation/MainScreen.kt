@@ -16,10 +16,44 @@ import com.example.reportsummaryappclone.main.presentation.component.PostsRow
 import com.example.reportsummaryappclone.main.presentation.component.StorySection
 import com.example.reportsummaryappclone.ui.theme.AppCloneTheme
 
+data class NavigationBarItem(
+    val icon: String,
+    val label : String,
+    val selected: Boolean,
+)
+val bottomAppBarIcons = listOf(
+    NavigationBarItem(
+        icon = "home",
+        label = "Home",
+        selected = false
+    ),
+    NavigationBarItem(
+        icon = "search",
+        label = "Search",
+        selected = false
+    ),
+    NavigationBarItem(
+        icon = "add",
+        label = "Add",
+        selected = false
+    ),
+    NavigationBarItem(
+        icon = "heart",
+        label = "Heart",
+        selected = false
+    ),
+    NavigationBarItem(
+        icon = "person",
+        label = "Person",
+        selected = false
+    ),
+)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen() {
+
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -49,88 +83,24 @@ fun MainScreen() {
             BottomAppBar(
 
             ) {
-                NavigationBarItem(
-                    onClick = {  },
-                    selected = false,
-                    icon = {
-                        IconButton(
-
-                            onClick = { /*TODO*/ }
-                        ) {
+                bottomAppBarIcons.forEachIndexed { index, navigationBarItem ->
+                    NavigationBarItem(
+                        label = { Text(text = navigationBarItem.label) },
+                        selected = bottomAppBarIcons[index].selected,
+                        icon = {
                             Icon(
                                 Icons.Filled.Search,
                                 contentDescription = null,
-                                modifier = Modifier.fillMaxSize()
+                                tint = MaterialTheme.colorScheme.secondary
                             )
+                        },
+                        onClick = {
+
                         }
-                    },
-                    label = {
-                        Text(
-                            text = "Person ",
-                            color = MaterialTheme.colorScheme.onSurface,
-                            style = MaterialTheme.typography.titleLarge
-                        )
-                    }
-                )
-                NavigationBarItem(
-                    onClick = {  },
-                    selected = false,
-                    icon = {
-                        IconButton(
-                            onClick = { /*TODO*/ }
-                        ) {
-                            Icon(
-                                Icons.Filled.Search,
-                                contentDescription = null
-                            )
-                        }
-                    },
-                    label = {
-                        Text(
-                            text = "Person ",
-                            color = MaterialTheme.colorScheme.onSurface,
-                            style = MaterialTheme.typography.titleLarge,
-                        )
-                    }
-                )
-                NavigationBarItem(
-                    onClick = {  },
-                    selected = false,
-                    icon = {
-                        IconButton(onClick = { /*TODO*/ }) {
-                            Icon(
-                                Icons.Filled.Search,
-                                contentDescription = null
-                            )
-                        }
-                    },
-                    label = {
-                        Text(
-                            text = "Person ",
-                            color = MaterialTheme.colorScheme.onSurface,
-                            style = MaterialTheme.typography.titleLarge
-                        )
-                    }
-                )
-                NavigationBarItem(
-                    onClick = {  },
-                    selected = false,
-                    icon = {
-                        IconButton(onClick = { /*TODO*/ }) {
-                            Icon(
-                                Icons.Filled.Search,
-                                contentDescription = null
-                            )
-                        }
-                    },
-                    label = {
-                        Text(
-                            text = "Person ",
-                            color = MaterialTheme.colorScheme.onSurface,
-                            style = MaterialTheme.typography.titleLarge
-                        )
-                    }
-                )
+                    )
+                }
+
+
             }
         }
     ) { paddingValues ->

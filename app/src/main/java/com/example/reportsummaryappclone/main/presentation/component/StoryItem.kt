@@ -6,10 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Phone
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -45,34 +42,34 @@ fun StoryItem(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box {
-            Box(
-                modifier = Modifier
-                    .border(
-                        2.dp,
-                        storyGradient,
-                        CircleShape
-                    )
-                    .padding(5.dp)
-                    .size(60.dp)
-                    .clip(
-                        CircleShape
-                    )
-                    .background(MaterialTheme.colorScheme.onSurface)
-                ,
-                contentAlignment = Alignment.Center
-            ) {
-                IconButton(
+
+                Button(
                     modifier = Modifier
-                        .fillMaxSize(),
-                    onClick = {}
+                        .border(
+                            2.dp,
+                            storyGradient,
+                            CircleShape
+                        )
+                        .padding(5.dp)
+                        ,
+                    contentPadding = PaddingValues(0.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.onSurface
+                    ),
+                    onClick = {},
                 ) {
                     AsyncImage(
                         image,
                         contentDescription = null,
                         contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .size(60.dp)
+                            .clip(
+                                CircleShape
+                            )
                     )
                 }
-            }
+
             if (withIcon) {
                 Box(
                     modifier = Modifier
