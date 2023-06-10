@@ -18,7 +18,7 @@ import com.example.reportsummaryappclone.ui.theme.AppCloneTheme
 
 data class NavigationBarItem(
     val icon: String,
-    val label : String,
+    val label: String,
     val selected: Boolean,
 )
 val bottomAppBarIcons = listOf(
@@ -32,6 +32,7 @@ val bottomAppBarIcons = listOf(
         label = "Search",
         selected = false
     ),
+
     NavigationBarItem(
         icon = "add",
         label = "Add",
@@ -52,8 +53,6 @@ val bottomAppBarIcons = listOf(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen() {
-
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -80,9 +79,7 @@ fun MainScreen() {
             )
         },
         bottomBar = {
-            BottomAppBar(
-
-            ) {
+            BottomAppBar() {
                 bottomAppBarIcons.forEachIndexed { index, navigationBarItem ->
                     NavigationBarItem(
                         label = { Text(text = navigationBarItem.label) },
