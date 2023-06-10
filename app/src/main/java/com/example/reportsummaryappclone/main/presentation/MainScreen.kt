@@ -1,54 +1,19 @@
 package com.example.reportsummaryappclone.main.presentation
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.reportsummaryappclone.R
 import com.example.reportsummaryappclone.main.presentation.component.MorePostsSection
 import com.example.reportsummaryappclone.main.presentation.component.PostsRow
 import com.example.reportsummaryappclone.main.presentation.component.StorySection
 import com.example.reportsummaryappclone.ui.theme.AppCloneTheme
-
-data class NavigationBarItem(
-    val icon: String,
-    val label: String,
-    val selected: Boolean,
-)
-val bottomAppBarIcons = listOf(
-    NavigationBarItem(
-        icon = "home",
-        label = "Home",
-        selected = false
-    ),
-    NavigationBarItem(
-        icon = "search",
-        label = "Search",
-        selected = false
-    ),
-
-    NavigationBarItem(
-        icon = "add",
-        label = "Add",
-        selected = false
-    ),
-    NavigationBarItem(
-        icon = "heart",
-        label = "Heart",
-        selected = false
-    ),
-    NavigationBarItem(
-        icon = "person",
-        label = "Person",
-        selected = false
-    ),
-)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -80,24 +45,90 @@ fun MainScreen() {
         },
         bottomBar = {
             BottomAppBar() {
-                bottomAppBarIcons.forEachIndexed { index, navigationBarItem ->
-                    NavigationBarItem(
-                        label = { Text(text = navigationBarItem.label) },
-                        selected = bottomAppBarIcons[index].selected,
-                        icon = {
-                            Icon(
-                                Icons.Filled.Search,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.secondary
-                            )
-                        },
-                        onClick = {
+                NavigationBarItem(
+                    label = {
+                        Text(
+                            text = "Home",
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = MaterialTheme.colorScheme.onBackground
+                        )
+                    },
+                    selected = false,
+                    icon = {
+                        Icon(
+                            painter = painterResource(id = R.drawable.home),
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.secondary,
+                            modifier = Modifier.size(26.dp)
+                        )
+                    },
+                    onClick = {
 
-                        }
-                    )
-                }
+                    }
+                )
+                NavigationBarItem(
+                    label = {
+                        Text(
+                            text = "Settings",
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = MaterialTheme.colorScheme.secondary
+                        )
+                    },
+                    selected = false,
+                    icon = {
+                        Icon(
+                            painter = painterResource(id = R.drawable.setting),
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.secondary,
+                            modifier = Modifier.size(26.dp)
+                        )
+                    },
+                    onClick = {
 
+                    }
+                )
+                NavigationBarItem(
+                    label = {
+                        Text(
+                            text = "Profile",
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = MaterialTheme.colorScheme.secondary
+                        )
+                    },
+                    selected = false,
+                    icon = {
+                        Icon(
+                            painter = painterResource(id = R.drawable.user_box),
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.secondary,
+                            modifier = Modifier.size(26.dp)
+                        )
+                    },
+                    onClick = {
 
+                    }
+                )
+                NavigationBarItem(
+                    label = {
+                        Text(
+                            text = "Calendar",
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = MaterialTheme.colorScheme.secondary
+                        )
+                    },
+                    selected = false,
+                    icon = {
+                        Icon(
+                            painter = painterResource(id = R.drawable.date_range),
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.secondary,
+                            modifier = Modifier.size(26.dp)
+                        )
+                    },
+                    onClick = {
+
+                    }
+                )
             }
         }
     ) { paddingValues ->
