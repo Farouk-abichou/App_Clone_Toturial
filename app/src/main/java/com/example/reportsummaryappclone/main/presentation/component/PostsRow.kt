@@ -16,7 +16,7 @@ fun PostsRow(
     postImages: PostImages = PostImages()
 ) {
     LazyRow(
-        contentPadding = PaddingValues(10.dp),
+        contentPadding = PaddingValues(horizontal = 10.dp),
     ) {
         item {
             PostItem(

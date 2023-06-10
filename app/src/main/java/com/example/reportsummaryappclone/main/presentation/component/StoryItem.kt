@@ -41,7 +41,7 @@ fun StoryItem(
     )
     Column(
         modifier = Modifier
-            .padding(6.dp),
+            .padding(PaddingValues(horizontal = 10.dp)),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box {

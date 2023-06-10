@@ -26,7 +26,6 @@ fun StorySection(
             )
         }
         item {
-
             StoryItem(
                 isChecked = false,
                 withIcon = false,

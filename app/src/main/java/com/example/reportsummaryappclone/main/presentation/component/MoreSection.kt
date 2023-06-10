@@ -24,7 +24,10 @@ fun MorePostsSection(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-    ) {
+            .padding(PaddingValues(horizontal = 10.dp))
+        ,
+
+        ) {
         Text(
             modifier = Modifier.padding(10.dp),
             text = "More",

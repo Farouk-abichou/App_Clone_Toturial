@@ -49,30 +49,88 @@ fun MainScreen() {
             BottomAppBar(
 
             ) {
-                IconButton(onClick = { /*TODO*/ }) {
-                    Icon(
-                        Icons.Filled.Search,
-                        contentDescription = null
-                    )
-                }
-                IconButton(onClick = { /*TODO*/ }) {
-                    Icon(
-                        Icons.Filled.Search,
-                        contentDescription = null
-                    )
-                }
-                IconButton(onClick = { /*TODO*/ }) {
-                    Icon(
-                        Icons.Filled.Search,
-                        contentDescription = null
-                    )
-                }
-                IconButton(onClick = { /*TODO*/ }) {
-                    Icon(
-                        Icons.Filled.Search,
-                        contentDescription = null
-                    )
-                }
+                NavigationBarItem(
+                    onClick = {  },
+                    selected = false,
+                    icon = {
+                        IconButton(
+
+                            onClick = { /*TODO*/ }
+                        ) {
+                            Icon(
+                                Icons.Filled.Search,
+                                contentDescription = null,
+                                modifier = Modifier.fillMaxSize()
+                            )
+                        }
+                    },
+                    label = {
+                        Text(
+                            text = "Person ",
+                            color = MaterialTheme.colorScheme.onSurface,
+                            style = MaterialTheme.typography.titleLarge
+                        )
+                    }
+                )
+                NavigationBarItem(
+                    onClick = {  },
+                    selected = false,
+                    icon = {
+                        IconButton(
+                            onClick = { /*TODO*/ }
+                        ) {
+                            Icon(
+                                Icons.Filled.Search,
+                                contentDescription = null
+                            )
+                        }
+                    },
+                    label = {
+                        Text(
+                            text = "Person ",
+                            color = MaterialTheme.colorScheme.onSurface,
+                            style = MaterialTheme.typography.titleLarge,
+                        )
+                    }
+                )
+                NavigationBarItem(
+                    onClick = {  },
+                    selected = false,
+                    icon = {
+                        IconButton(onClick = { /*TODO*/ }) {
+                            Icon(
+                                Icons.Filled.Search,
+                                contentDescription = null
+                            )
+                        }
+                    },
+                    label = {
+                        Text(
+                            text = "Person ",
+                            color = MaterialTheme.colorScheme.onSurface,
+                            style = MaterialTheme.typography.titleLarge
+                        )
+                    }
+                )
+                NavigationBarItem(
+                    onClick = {  },
+                    selected = false,
+                    icon = {
+                        IconButton(onClick = { /*TODO*/ }) {
+                            Icon(
+                                Icons.Filled.Search,
+                                contentDescription = null
+                            )
+                        }
+                    },
+                    label = {
+                        Text(
+                            text = "Person ",
+                            color = MaterialTheme.colorScheme.onSurface,
+                            style = MaterialTheme.typography.titleLarge
+                        )
+                    }
+                )
             }
         }
     ) { paddingValues ->
