@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.example.reportsummaryappclone.main.MainScreen
+import com.example.reportsummaryappclone.main.presentation.MainScreen
 import com.example.reportsummaryappclone.ui.theme.AppCloneTheme
 
 class MainActivity : ComponentActivity() {

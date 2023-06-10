@@ -1,5 +1,6 @@
-package com.example.reportsummaryappclone.main
+package com.example.reportsummaryappclone.main.presentation
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -10,9 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.reportsummaryappclone.main.component.MoreSection
-import com.example.reportsummaryappclone.main.component.PostsRow
-import com.example.reportsummaryappclone.main.component.StorySection
+import com.example.reportsummaryappclone.main.presentation.component.MorePostsSection
+import com.example.reportsummaryappclone.main.presentation.component.PostsRow
+import com.example.reportsummaryappclone.main.presentation.component.StorySection
 import com.example.reportsummaryappclone.ui.theme.AppCloneTheme
 
 
@@ -78,11 +79,12 @@ fun MainScreen() {
         Column(
             modifier = Modifier
                 .padding(paddingValues)
-                .fillMaxSize()
+                .fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(20.dp)
         ) {
             StorySection()
             PostsRow()
-            MoreSection()
+            MorePostsSection()
         }
     }
 }
